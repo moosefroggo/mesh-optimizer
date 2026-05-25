@@ -1,0 +1,22 @@
+{
+  "name": "@mesh-optimizer/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "mesh-optimizer": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@mesh-optimizer/core": "*",
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
