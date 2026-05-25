@@ -1,6 +1,6 @@
 # mesh-optimizer
 
-A two-part library for optimizing 3D meshes — an offline pipeline that repairs, simplifies, and compresses GLB files, and a zero-config runtime component for Three.js/R3F.
+A library for optimizing meshes for the web, it uses an offline pipeline that repairs, simplifies, and compresses GLB files, and a zero-config runtime component for Three.js/R3F.
 
 Built specifically for AI-generated meshes (Meshy, Tripo, etc.) which tend to be over-triangulated, contain duplicate vertices, and carry interior geometry the GPU never needs to render.
 
