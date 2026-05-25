@@ -1,10 +1,13 @@
-import { Document } from '@gltf-transform/core'
+import { Document, Logger } from '@gltf-transform/core'
 import { meshopt, quantize } from '@gltf-transform/functions'
 import { MeshoptEncoder } from 'meshoptimizer'
 import type { CompressOptions } from '../types.js'
 
 export async function compress(doc: Document, options: CompressOptions = {}): Promise<void> {
   const { meshopt: doMeshopt = true, quantize: doQuantize = true } = options
+
+  // Suppress quantize "skipping out-of-range UV" warnings — expected for tiling textures
+  doc.setLogger(new Logger(Logger.Verbosity.ERROR))
 
   await MeshoptEncoder.ready
 

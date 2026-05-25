@@ -1,5 +1,6 @@
 import {
   Document,
+  Logger,
   Primitive,
 } from '@gltf-transform/core'
 import {
@@ -10,6 +11,7 @@ import {
 import type { RepairOptions } from '../types.js'
 
 export async function repair(doc: Document, options: RepairOptions = {}): Promise<void> {
+  doc.setLogger(new Logger(Logger.Verbosity.WARN))
   const {
     weld: doWeld = true,
     degenerateTriangles = true,

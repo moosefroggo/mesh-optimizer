@@ -16,6 +16,7 @@ export function buildManifest(
   name: string,
   sourceTriangles: number,
   sourceFileSize: number,
+  sourceTextureSizeBytes: number,
   lods: LodEntry[],
 ): Manifest {
   return {
@@ -23,6 +24,7 @@ export function buildManifest(
     source: {
       triangles: sourceTriangles,
       fileSize: sourceFileSize,
+      textureSizeBytes: sourceTextureSizeBytes,
     },
     lods,
     createdAt: new Date().toISOString(),

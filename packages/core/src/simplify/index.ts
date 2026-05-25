@@ -1,4 +1,4 @@
-import { Document, NodeIO } from '@gltf-transform/core'
+import { Document, Logger, NodeIO } from '@gltf-transform/core'
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions'
 import { simplify, weld } from '@gltf-transform/functions'
 import { MeshoptSimplifier, MeshoptDecoder } from 'meshoptimizer'
@@ -32,6 +32,7 @@ export async function generateLods(
 
   for (const lod of lods) {
     const clone = await io.readBinary(sourceGlb)
+    clone.setLogger(new Logger(Logger.Verbosity.ERROR))
 
     // Re-weld before each simplification pass so the simplifier
     // has merged vertices to collapse — critical for quality

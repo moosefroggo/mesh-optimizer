@@ -23,6 +23,16 @@ export interface RepairOptions {
 export interface CompressOptions {
   meshopt?: boolean
   quantize?: boolean
+  textures?: TextureOptions | false
+}
+
+export interface TextureOptions {
+  /** Max texture resolution per side. Default: 2048 for lod0, scales down per LOD */
+  maxResolution?: number
+  /** Target format. Default: webp */
+  format?: 'webp' | 'jpeg' | 'png'
+  /** Quality 1–100. Default: 85 */
+  quality?: number
 }
 
 export interface OutputOptions {
@@ -36,6 +46,7 @@ export interface LodEntry {
   ratio: number
   triangles: number
   fileSize: number
+  textureSizeBytes: number
 }
 
 export interface Manifest {
@@ -43,6 +54,7 @@ export interface Manifest {
   source: {
     triangles: number
     fileSize: number
+    textureSizeBytes: number
   }
   lods: LodEntry[]
   createdAt: string
